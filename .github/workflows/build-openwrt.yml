@@ -12,9 +12,9 @@ on:
   repository_dispatch:
 #  release:
 #    types: published
-  push:
-    branches:
-      - master
+#  push:
+#    branches:
+#      - master
 #    paths:
 #      - 'd1.config'
   schedule:
@@ -171,7 +171,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ secrets.RAC_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.D1_TOKEN }}
       with:
         tag_name: ${{ env.RELEASE_TAG }}
         body: 🚀 GitHub Automated Build | 自动编译
