@@ -12,13 +12,13 @@ on:
   repository_dispatch:
 #  release:
 #    types: published
-  push:
-    branches:
-      - master
+#  push:
+#    branches:
+#      - master
 #    paths:
 #      - 'd1.config'
   schedule:
-    - cron: 0 3 * * 5
+    - cron: 0 3 * * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
