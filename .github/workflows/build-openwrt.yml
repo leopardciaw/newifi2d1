@@ -12,9 +12,9 @@ on:
   repository_dispatch:
 #  release:
 #    types: published
-#  push:
-#    branches:
-#      - master
+  push:
+    branches:
+      - master
 #    paths:
 #      - 'd1.config'
   schedule:
@@ -34,7 +34,7 @@ env:
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
+  UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
