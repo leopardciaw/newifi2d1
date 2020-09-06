@@ -1,5 +1,5 @@
 # OpenWrt firmware for Newifi2_D1
-固件采用GitHub Actions不定时自动云编译。  
+固件采用GitHub Actions不定时自动云编译Newifi2_D1。  
 Auto build OpenWrt firmware for Newifi2_D1 via GitHub Actions
 
 # 致谢大佬&Thanks
@@ -17,10 +17,10 @@ https://github.com/kenzok8/openwrt-packages
 
 
 # 最新版下载&Download Latest
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/leopardciaw/R619AC?style=for-the-badge&label=Download)](https://github.com/leopardciaw/R619AC/releases/latest)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/leopardciaw/newifi2d1?style=for-the-badge&label=Download)](https://github.com/leopardciaw/R619AC/releases/latest)
 
 
-[所有已发布 & All Release](https://github.com/leopardciaw/R619AC/releases)
+[所有已发布 & All Release](https://github.com/leopardciaw/newifi2d1/releases)
 
 # 请注意
 1.集成的插件只是自己需要用到的，请多多包涵。  
