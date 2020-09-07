@@ -12,7 +12,7 @@
 sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/ipq40xx/Makefile
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
 sed -i 's/OpenWrt/Newifi2_D1/g' package/base-files/files/bin/config_generate
@@ -28,6 +28,7 @@ sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
 # rm -rf luci-theme-argon
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon luci-theme-argon
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
 # 清除默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/luci-theme-opentomcat
@@ -42,23 +43,17 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/lu
     echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
     sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 
-# 获取ssr
+# 添加新的主题包
+# git clone https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+# git clone https://github.com/sypopo/luci-theme-atmaterial.git package/lean/luci-theme-atmaterial
+git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
+
+# 取消bootstrap为默认主题
+# sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+
+# Modify default theme
+# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+# 增加ssr
 # git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-# git clone https://github.com/fw876/helloworld.git package/openwrt-packages/luci-app-ssr-plus
-
-# 获取luci-app-adguardhome
-# git clone https://github.com/rufengsuixing/luci-app-adguardhome package/diy-packages/luci-app-adguardhome
-
-#获取Lienol-xiaorouji-package
-#git clone https://github.com/xiaorouji/openwrt-package/lienol/ package/diy-packages/lienol
-git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
-git clone https://github.com/kenzok8/small.git package/small
-
-# 获取Lienol-package
-# git clone https://github.com/Lienol/openwrt-package package/diy-packages/lienol
-
-# 获取luci-app-serverchan
-# git clone https://github.com/tty228/luci-app-serverchan package/diy-packages/luci-app-serverchan
-
-#增加koolddns
-# git clone https://github.com/leopardciaw/luci-app-koolddns.git package/lean/luci-app-koolddns
+git clone https://github.com/fw876/helloworld.git package/openwrt-packages/luci-app-ssr-plus
