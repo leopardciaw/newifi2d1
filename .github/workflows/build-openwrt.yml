@@ -18,7 +18,7 @@ on:
 #    paths:
 #      - 'd1.config'
   schedule:
-    - cron: 50 5 */20 * *
+    - cron: 50 5 */10 * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
