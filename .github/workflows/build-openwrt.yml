@@ -22,7 +22,7 @@ on:
 #    paths:
 #      - 'd1.config'
   schedule:
-    - cron: 25 3 * * *
+    - cron: 50 12 * * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
@@ -35,7 +35,7 @@ env:
   CONFIG_FILE: d1.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
@@ -45,7 +45,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
 
     steps:
@@ -58,7 +58,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -94,10 +94,11 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: SSH connection to Actions
-  #      uses: csexton/debugger-action@master
+#      uses: csexton/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
-      uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 30
+      uses: P3TERX/ssh2actions@v1.0.0
+#     uses: mxschmitt/action-tmate@v3
+#     timeout-minutes: 30
       
     - name: Download package
       id: package
