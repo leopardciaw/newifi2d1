@@ -22,7 +22,7 @@ on:
 #    paths:
 #      - 'd1.config'
   schedule:
-    - cron: 25 8 * * *
+    - cron: 10 3 * * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
